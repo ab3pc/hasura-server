@@ -1,0 +1,14 @@
+table:
+  name: pizzas
+  schema: public
+select_permissions:
+  - role: quest
+    permission:
+      columns:
+        - price
+        - weight
+        - image
+        - ingredients
+        - title
+        - id
+      filter: {}

@@ -1,0 +1,10 @@
+query GetMenu {
+  pizzas {
+    id
+    image
+    ingredients
+    price
+    title
+    weight
+  }
+}

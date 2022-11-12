@@ -1,0 +1,42 @@
+actions:
+  - name: adminGetMe
+    definition:
+      kind: ""
+      handler: http://host.docker.internal:8888/.netlify/functions/admin-get-me
+      forward_client_headers: true
+    comment: adminGetMe
+  - name: adminLogin
+    definition:
+      kind: ""
+      handler: http://host.docker.internal:8888/.netlify/functions/admin-login
+      forward_client_headers: true
+    permissions:
+      - role: quest
+    comment: Login admin
+  - name: adminOneRegister
+    definition:
+      kind: synchronous
+      handler: http://host.docker.internal:8888/.netlify/functions/admin-register
+      forward_client_headers: true
+      headers:
+        - name: x-pizza-secret-key
+          value: mysecretkey
+    comment: Admin registration
+  - name: cloudinarySignature
+    definition:
+      kind: ""
+      handler: http://host.docker.internal:8888/.netlify/functions/cloud-signature
+      forward_client_headers: true
+custom_types:
+  enums: []
+  input_objects:
+    - name: AdminRegisterInput
+    - name: AdminReg2Input
+    - name: AdminLoginInput
+  objects:
+    - name: AdminRegisterOutput
+    - name: AdminReg2Output
+    - name: AdminLoginOutput
+    - name: AdminGetMeOutput
+    - name: CloudinarySignatureOutput
+  scalars: []
